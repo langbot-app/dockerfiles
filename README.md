@@ -4,13 +4,13 @@ Docker images for LangBot infrastructure.
 
 ## Structure
 
-Each subdirectory contains a `Dockerfile` for one image. Pushing to `main` auto-builds and pushes changed images to Docker Hub under `langbot/<dir>`.
+Each subdirectory contains a `Dockerfile` for one image. Pushing to `main` auto-builds and pushes changed images to Docker Hub under `rockchin/<dir>`.
 
 ## Images
 
 | Directory | Image | Description |
 |-----------|-------|-------------|
-| `sandbox` | `langbot/sandbox` | Python 3.12 + Node 22 + common tools (git, vim, curl, wget, jq) for LangBot sandbox environments |
+| `sandbox` | `rockchin/sandbox` | Python 3.12 + Node 22 + common tools (git, vim, curl, wget, jq) for LangBot sandbox environments |
 
 ## Adding a new image
 
@@ -28,5 +28,5 @@ gh workflow run build.yml -f image=sandbox
 
 ## Secrets required
 
-- `DOCKERHUB_USERNAME` — Docker Hub username
+- `DOCKERHUB_USERNAME` — Docker Hub username (rockchin)
 - `DOCKERHUB_TOKEN` — Docker Hub access token

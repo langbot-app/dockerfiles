@@ -64,7 +64,7 @@ jobs:
           context: ./${{ matrix.image }}
           push: true
           tags: |
-            langbot/${{ matrix.image }}:latest
-            langbot/${{ matrix.image }}:${{ github.sha }}
+            rockchin/${{ matrix.image }}:latest
+            rockchin/${{ matrix.image }}:${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
