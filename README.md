@@ -10,7 +10,7 @@ Each subdirectory contains a `Dockerfile` for one image. Pushing to `main` auto-
 
 | Directory | Image | Description |
 |-----------|-------|-------------|
-| `sandbox` | `rockchin/sandbox` | Python 3.12 + Node 22 + common tools (git, vim, curl, wget, jq) for LangBot sandbox environments |
+| `langbot-sandbox` | `rockchin/langbot-sandbox` | Python 3.12 + Node 22 + common tools (git, vim, curl, wget, jq) for LangBot langbot-sandbox environments |
 
 ## Adding a new image
 
@@ -23,7 +23,7 @@ Each subdirectory contains a `Dockerfile` for one image. Pushing to `main` auto-
 Use the workflow dispatch to build a specific image:
 
 ```
-gh workflow run build.yml -f image=sandbox
+gh workflow run build.yml -f image=langbot-sandbox
 ```
 
 ## Secrets required
