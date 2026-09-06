@@ -1,0 +1,6 @@
+# Image-wide defaults, including when the sandbox runs as a non-root user.
+# Matplotlib discovers the first face in Debian's Noto CJK collection as JP.
+# That face also covers simplified/traditional Chinese and the Unicode minus.
+backend: Agg
+font.family: sans-serif
+font.sans-serif: Noto Sans CJK JP, DejaVu Sans

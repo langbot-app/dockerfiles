@@ -1,0 +1,27 @@
+name: Test sandbox image
+
+on:
+  pull_request:
+    paths:
+      - 'langbot-sandbox/**'
+      - '.github/workflows/test.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sandbox:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-qemu-action@v3
+      - uses: docker/setup-buildx-action@v3
+      - name: Build and smoke-test both architectures (no push)
+        uses: docker/build-push-action@v6
+        with:
+          context: ./langbot-sandbox
+          platforms: linux/amd64,linux/arm64
+          push: false
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
