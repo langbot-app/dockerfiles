@@ -19,10 +19,9 @@ RUN python -m pip install --no-cache-dir -r /tmp/sandbox-requirements.txt \
 
 # Use Matplotlib's installation-wide defaults rather than a root-only config
 # or a shared writable MPLCONFIGDIR. User/script overrides still take priority.
-COPY matplotlibrc /tmp/sandbox-matplotlibrc
-RUN install -m 644 /tmp/sandbox-matplotlibrc \
-        "$(python -c 'import matplotlib; print(matplotlib.get_data_path())')/matplotlibrc" \
-    && rm /tmp/sandbox-matplotlibrc
+COPY matplotlibrc configure_matplotlib.py /tmp/
+RUN python /tmp/configure_matplotlib.py /tmp/matplotlibrc \
+    && rm /tmp/configure_matplotlib.py /tmp/matplotlibrc
 
 # Exercise real rendering on every architecture before an image can be pushed.
 COPY tests/smoke_test.py /tmp/sandbox-smoke-test.py
