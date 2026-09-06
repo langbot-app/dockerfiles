@@ -6,6 +6,7 @@ on:
     paths:
       - '*/Dockerfile'
       - '**/Dockerfile'
+      - 'langbot-sandbox/**'
       - '.github/workflows/build.yml'
   workflow_dispatch:
     inputs:
